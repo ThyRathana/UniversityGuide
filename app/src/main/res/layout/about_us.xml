@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:background="#F7F0F7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginBottom="20dp"
+
+            android:text="We are student at NIPTICT institute, majoring Computer Science. We create this system is to help people who are seeking for university to find information about various universities in Phnom Penh. It easily compare and decide which university is the best for them by considering on the level of rating and the reviews of each university. Moreover, they can also ask question related to university information and reply with other people. Hope this system can help you to choose the university.  Thank you."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_margin="5dp"
+
+            android:textSize="@dimen/txt_size"
+            android:text="contact Us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:textSize="@dimen/txt_size"
+            android:text="Tel  093414133"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="3dp"
+            android:textSize="@dimen/txt_size"
+            android:text="Email  thyrathana5@gmail.com"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="3dp"
+            android:textSize="@dimen/txt_size"
+            android:text="Website  niptict.edu.kh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+
+</LinearLayout>
