@@ -1,6 +1,7 @@
 package com.example.universityguide.adapter;
 
 import android.content.Context;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -16,6 +17,8 @@ public class SchoolAdapter extends BaseAdapter {
 
     private Context context;
     private List<SchoolModel> modelList;
+
+    //private View.OnClickListener mOnClickListener;
 
     public SchoolAdapter(Context context, List<SchoolModel>modelList){
         this.context = context;
@@ -44,10 +47,11 @@ public class SchoolAdapter extends BaseAdapter {
         View v = View.inflate(context,R.layout.home_view, null);
         ImageView img = v.findViewById(R.id.img_logo);
         TextView tvName = v.findViewById(R.id.tv_name);
-
         SchoolModel obj = modelList.get(position);
         img.setImageResource(obj.getImage_id());
         tvName.setText(obj.getName());
+
+
         return v;
     }
 

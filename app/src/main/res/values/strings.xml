@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">UniversityGuide</string>
+
+    <string name="school_name">National Institute of Posts, Telecoms and ICT</string>
+    <string name="email">niptict.edu@gmail.com</string>
+    <string name="phone">010 123 456</string>
+    <string name="website">niptict.edu.com.kh</string>
 </resources>

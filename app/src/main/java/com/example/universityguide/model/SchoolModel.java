@@ -19,4 +19,12 @@ public class SchoolModel {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "SchoolModel{" +
+                "image_id=" + image_id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
