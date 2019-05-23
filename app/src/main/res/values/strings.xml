@@ -5,4 +5,7 @@
     <string name="email">niptict.edu@gmail.com</string>
     <string name="phone">010 123 456</string>
     <string name="website">niptict.edu.com.kh</string>
+    <string name="app_register">Don\'t have account? REGISTER</string>
+    <string name="app_login">Already have an account? LOGIN</string>
+    <string name="edit_profile">Edit Profile Photo</string>
 </resources>
