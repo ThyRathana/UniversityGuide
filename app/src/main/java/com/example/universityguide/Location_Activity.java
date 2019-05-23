@@ -95,4 +95,100 @@ public class Location_Activity extends FragmentActivity implements OnMapReadyCal
         }
 
     }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+        mLastLocation = location;
+        if (mCurrLocationMarker != null) {
+            mCurrLocationMarker.remove();
+        }
+        //Place current location marker
+        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(latLng);
+        markerOptions.title("Current Position");
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+        mCurrLocationMarker = mMap.addMarker(markerOptions);
+
+        //move map camera
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+
+        //stop location updates
+        if (mGoogleApiClient != null) {
+            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+        }
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
+    }
+
+    public void searchLocation(View view) {
+        EditText locationSearch = (EditText) findViewById(R.id.editText);
+        String location = locationSearch.getText().toString();
+        List<Address> addressList = null;
+
+        if (location != null || !location.equals("")) {
+            Geocoder geocoder = new Geocoder(this);
+            try {
+                addressList = geocoder.getFromLocationName(location, 1);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Address address = addressList.get(0);
+            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(latLng).title(location));
+            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+            Toast.makeText(getApplicationContext(),address.getLatitude()+" "+address.getLongitude(),Toast.LENGTH_LONG).show();
+        }
+    }
+
 }
+
+//    private GoogleMap mMap;
+//    private float defaultZoom = 35;
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_location);
+//        setTitle("Location");
+//
+//        SupportMapFragment mapFragment =
+//          .findFragmentById(R.id.map);
+//        mapFragment.getMapAsync(this);
+//    }
+//
+//    @Override
+//    public void onMapReady(GoogleMap googleMap) {
+//        mMap = googleMap;
+//
+//        // Add a marker in Sydney, Australia, and move the camera.
+//        LatLng niptict = new LatLng(11.5781079,104.9031986);
+//        mMap.addMarker(new MarkerOptions().position(niptict).title("Marker in NIPTICT OMP"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(niptict,defaultZoom));
+
+
+//        Polyline polyline1 = googleMap.addPolyline(new PolylineOptions()
+//                .clickable(true)
+//                .add(
+//                        new LatLng(13.090415, 103.208546),
+//                        new LatLng(13.089986, 103.210316),
+//                        new LatLng(13.089568, 103.211561),
+//                        new LatLng(13.089328, 103.212323),
+//                        new LatLng(13.089119, 103.212892),
+//                        new LatLng(13.088816, 103.213740),
+//                        new LatLng(13.088001, 103.216197)));
+//        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-23.684, 133.903), 4));
+ //   }
+//}
